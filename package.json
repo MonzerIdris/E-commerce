@@ -7,9 +7,9 @@
     "dev": "nodemon index.js",
     "start": "node index.js",
     "heroku-postbuild": "cd my-app && npm install --only=dev && npm install && npm run build"
-      },
-    "engines": {
-      "node": "16.15.0"
+  },
+  "engines": {
+    "node": "16.15.0"
   },
   "author": "",
   "license": "ISC",
