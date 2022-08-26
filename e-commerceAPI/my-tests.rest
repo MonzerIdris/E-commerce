@@ -1,0 +1,99 @@
+
+POST http://localhost:5000/api/auth/register 
+Content-Type: application/json
+
+{
+    "username": "o",
+    "email": "o@o.com",
+    "password": "o"
+}
+
+####
+POST http://localhost:5000/api/auth/login 
+Content-Type: application/json
+
+{
+    "email": "o@o",
+    "password": "o"
+}
+####
+PUT  http://localhost:5000/api/users/62d506290ba745839bbe0634
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDUwNjI5MGJhNzQ1ODM5YmJlMDYzNCIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTgxNDE0OTB9.MB6uOjo_oaIZ3NAgSh_n32kuEc0tOtA7wUndb_w3dYw
+Content-Type: application/json
+
+{
+    "username": "n"
+}
+####
+DELETE http://localhost:5000/api/users/62d7b96bbe978717449b0e5b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDdiOTZiYmU5Nzg3MTc0NDliMGU1YiIsImlzQWRtaW4iOmZhbHNlLCJpYXQiOjE2NTgzMDU4OTB9.rU7VIcL0TsZlwbbaQWcHFGKo8LLfelMUEwW4_SaIC_A
+Content-Type: application/json
+
+
+####
+GET  http://localhost:5000/api/users/find/62d67cc01b84ebc3632d4c91
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDY3Y2MwMWI4NGViYzM2MzJkNGM5MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODIyNDA1OX0.C9FIEfbvUfjQIOtLW2JRUaYfJKesV5Mx7c_KZ_ODi14
+Content-Type: application/json
+####
+GET http://localhost:5000/api/users/?new=true
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDY3Y2MwMWI4NGViYzM2MzJkNGM5MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODIyNDA1OX0.C9FIEfbvUfjQIOtLW2JRUaYfJKesV5Mx7c_KZ_ODi14
+####
+GET http://localhost:5000/api/users/stats
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDY3Y2MwMWI4NGViYzM2MzJkNGM5MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODIyNDA1OX0.C9FIEfbvUfjQIOtLW2JRUaYfJKesV5Mx7c_KZ_ODi14
+# product crud
+####
+POST  http://localhost:5000/api/products
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmViMjRhOTViZDM0M2FmNDY5Mzk0NCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY2MTI2NTQ0MH0.rG_WdKnmLLZal23w-6tVzn4UDA3rSqJ-x0VxW-dIoV4
+
+{
+    "title": "HAKURA T-SHIRT",
+    "desc": "A Very Cool Shirt Available In Many Sizes",
+    "img": "https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png",
+    "categories": ["shirts","man","woman"],
+    "size": ["S","M","L"],
+    "color": ["gray"],
+    "price": 35
+    
+}
+####
+PUT   http://localhost:5000/api/products/62dbda6f32ae5fcbe4f9ea8e
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDY3Y2MwMWI4NGViYzM2MzJkNGM5MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODIyNDA1OX0.C9FIEfbvUfjQIOtLW2JRUaYfJKesV5Mx7c_KZ_ODi14
+
+{
+
+    "color": ["yellow", "orange", "black", "teal"]
+    
+}
+####
+GET    http://localhost:5000/api/products/?category=woman
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDY3Y2MwMWI4NGViYzM2MzJkNGM5MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODIyNDA1OX0.C9FIEfbvUfjQIOtLW2JRUaYfJKesV5Mx7c_KZ_ODi14
+#order crud
+####
+POST  http://localhost:5000/api/orders/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDY3Y2MwMWI4NGViYzM2MzJkNGM5MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODIyNDA1OX0.C9FIEfbvUfjQIOtLW2JRUaYfJKesV5Mx7c_KZ_ODi14
+
+{
+    "userId": "62d67cc01b84ebc3632d4c91",
+    "products": [
+        {
+            "productId": "11",
+            "quantity": 2
+        },
+        {
+            "productId": "22",
+            "quantity": 4
+        } 
+    ],
+    "amount": 500,
+    "address": "SUDAN"
+}
+####
+GET   http://localhost:5000/api/orders/income
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZDY3Y2MwMWI4NGViYzM2MzJkNGM5MSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1ODIyNDA1OX0.C9FIEfbvUfjQIOtLW2JRUaYfJKesV5Mx7c_KZ_ODi14
