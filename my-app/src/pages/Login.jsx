@@ -63,6 +63,11 @@ const Input = styled.input`
   border-radius: 6px;
 `;
 
+const Agreement = styled.span`
+  font-size: 12px;
+  margin: 20px 0px 5px;
+`;
+
 const Button = styled.button`
 	display: flex;
 	align-items: center;
@@ -84,13 +89,20 @@ const ButtonWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+  margin-top: 10px;
 `
-// const Link = styled.a`
-//   margin: 5px 0px;
-//   font-size: 12px;
-//   text-decoration: underline;
-//   cursor: pointer;
-// `;
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: #253634;
+
+    &:focus, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+    &:hover{
+        color: #038c7c;
+        text-decoration: underline #038c7c;
+    }
+`;
 // const Error = styled.span`
 //   color: red;
 // `;
@@ -165,12 +177,17 @@ function Login() {
               <Label>password</Label>
               <Input name='password' id='password' type="password" onChange={e => setPassword(e.target.value)} autoComplete='on' required/>
             </InputWrapper>
+            
+            {/* {error && <Error>Something went wrong</Error> } */}
+            {/* <Link>FORGOT YOUR PASSWORD?</Link> */}
+            <Agreement>
+              Don't have an account <b><StyledLink to={"/register"} style={{margin: "5px 0", fontSize: "12px", textDecoration: "underline" }}>CREATE A NEW ACCOUNT</StyledLink></b>
+            </Agreement>
+
+            
             <ButtonWrapper>
               <Button  type='submit'>LOGIN</Button>
             </ButtonWrapper>
-            {/* {error && <Error>Something went wrong</Error> } */}
-            {/* <Link>FORGOT YOUR PASSWORD?</Link> */}
-            <Link to={"/register"} style={{margin: "5px 0", fontSize: "12px", textDecoration: "underline" }}>CREATE A NEW ACCOUNT</Link>
           </Form>
         </Wrapper>
       </Container>

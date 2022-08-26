@@ -141,10 +141,9 @@ const Hr = styled.hr`
 //     }
 // `
 const StyledLink = styled(Link)`
-    text-decoration: none;
     color: #253634;
 
-    &:focus, &:visited, &:link, &:active {
+     &:visited, &:link {
         text-decoration: none;
     }
     &:hover{

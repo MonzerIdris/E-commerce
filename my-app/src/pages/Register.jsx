@@ -111,6 +111,18 @@ const Span = styled.span`
   font-size: 13px;
   color: #e64646;
 `
+const StyledLink = styled(Link)`
+    text-decoration: none;
+    color: #253634;
+
+    &:focus, &:visited, &:link, &:active {
+        text-decoration: none;
+    }
+    &:hover{
+        color: #038c7c;
+        text-decoration: underline #038c7c;
+    }
+`;
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -267,7 +279,7 @@ function Register() {
               By creating an account, I consent to the processing of my personal
               data in accordance with the <b>PRIVACY POLICY</b>
             </Agreement>
-            <Link to={"/login"} style={{margin: "5px 0", fontSize: "12px", textDecoration: "underline" }}>ALREADY HAVE AN ACCOUNT?</Link>
+            <StyledLink to={"/login"} style={{margin: "5px 0", fontSize: "12px", textDecoration: "underline" }}>ALREADY HAVE AN ACCOUNT?</StyledLink>
             <ButtonWrapper><Button type='submit'>CREATE</Button></ButtonWrapper>
           </Form>
         </Wrapper>
