@@ -39,3 +39,7 @@
                 
                 
               </Product>
+
+
+                // react package.json
+                  "start": "react-scripts start",
