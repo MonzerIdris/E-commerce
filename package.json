@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
+    "heroku-postbuild": "cd my-app && npm install --only=dev && npm install && npm run build",
     "devStart": "nodemon index.js"  },
+    "engines": {
+      "node": "16.15.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
