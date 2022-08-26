@@ -23,7 +23,7 @@ dotenv.config()
 // const urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(cors())
 app.use(express.json())
-app.use(express.urlencoded({ extended: true }));  
+app.use(express.urlencoded({ extended: false }));  
 app.use(morgan('dev'))
 
 
@@ -35,10 +35,9 @@ moongose.connect(process.env.MONGO_URL)
 const path = require("path")
 
 // ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, "my-app", "public")))
 
-// ...
-// Right before your app.listen(), add this:
+
 
 // app.use(isAuthorized)
 app.use("/api/auth", authRoute)
@@ -56,8 +55,10 @@ app.get("/api/validate-token", isAuthorized, async (req, res) => {
     res.status(401).json({ message: req.tokenStatus || "invalid" });
   }
 })
+// ...
+// Right before your app.listen(), add this:
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
+    res.sendFile(path.join(__dirname, "my-app", "public", "index.html"));
 });
 try {
     app.listen(process.env.PORT || 5000, () => console.log("Backend server is running"))
