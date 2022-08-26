@@ -4,17 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon index.js",
     "start": "node index.js",
-    "heroku-postbuild": "cd my-app && npm install --only=dev && npm install && npm run build",
-    "dev": "nodemon index.js"
-  },
-  "engines": {
-    "node": "16.15.0"
+    "heroku-postbuild": "cd my-app && npm install --only=dev && npm install && npm run build"
+      },
+    "engines": {
+      "node": "16.15.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@testing-library/react": "^13.3.0",
     "cors": "^2.8.5",
     "crypto-js": "^4.1.1",
     "dotenv": "^16.0.1",
