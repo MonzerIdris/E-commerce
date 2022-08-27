@@ -35,7 +35,7 @@ moongose.connect(process.env.MONGO_URL)
 const path = require("path")
 
 // ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "my-app", "public")))
+app.use(express.static(path.join(__dirname, "my-app", "build")))
 
 
 
@@ -58,7 +58,7 @@ app.get("/api/validate-token", isAuthorized, async (req, res) => {
 // ...
 // Right before your app.listen(), add this:
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "my-app", "public", "index.html"));
+    res.sendFile(path.join(__dirname, "my-app", "build", "index.html"));
 });
 try {
     app.listen(process.env.PORT || 5000, () => console.log("Backend server is running"))
