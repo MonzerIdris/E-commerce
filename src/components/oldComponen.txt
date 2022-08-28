@@ -1,0 +1,45 @@
+<Product key={product._id}>
+                
+                <ProductDetail>
+                  <Image src={product.img} />
+                  <Details>
+                    <ProductName>
+                      <b>Product:</b> {product.title}
+                    </ProductName>
+                    <ProductId>
+                      <b>ID:</b> {product._id.slice(0,11)}
+                      {/* {setIdList([...idList,product._id])} */}
+                    </ProductId>
+                    <ColorDetail>
+                    {product.color.map(c => (
+                        <ProductColor color={c} />
+                    ))}  
+                    </ColorDetail>                 
+                    <ProductSize>
+                      <b>Size:</b> {product.size[0]}
+                    </ProductSize>
+                  </Details>
+                </ProductDetail>
+                <PriceDetail>
+                  <ProductAmountContainer>
+                    <Add onClick={() => handleQuantity("inc", productNum)} />
+                    
+                      <ProductAmount>{quantity}</ProductAmount>
+                            
+                    <Remove onClick={() => handleQuantity("dec", productNum)} />
+                  </ProductAmountContainer>
+                  <ProductPrice>
+                    $ {product.price * cart.products[productNum].quantity}
+                  </ProductPrice>
+                  <Update />
+                <UpdateButton type='filled'>Update</UpdateButton>
+                </PriceDetail>
+                {/* {setProductNum(productNum += 1)} */}
+                
+                
+                
+              </Product>
+
+
+                // react package.json
+                  "start": "react-scripts start",
