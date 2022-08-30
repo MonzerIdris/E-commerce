@@ -6,6 +6,7 @@ import { validateToken } from "./api/user";
 import AOS from "aos";
 
 import './Context.css'
+import { mobile } from "./responsive";
 
 export const UserContext = createContext()
 
@@ -25,10 +26,15 @@ const Container2 = styled.div`
   /* display: flex; */
   /* justify-content: center; */
   /* flex-direction: column; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   position: fixed;
-  z-index: 999;
-  height: 4rem;
-  width: 8rem;
+  z-index: 990;
+  height: 22vh;
+  width: 20vw;
   /* letter-spacing: 1px; */
   overflow: visible;
   padding: 2rem 4rem 4rem 4rem ;
@@ -45,25 +51,28 @@ const Container2 = styled.div`
   border: 1px solid darkgreen;
   float: left;
   /* padding: 20px 30px; */
+  ${mobile({ height: "20vh", width: "25vw" })}
+
 `
 const P = styled.p`
-  position: absolute;
+  margin-bottom: 5vh;
   display: flex;
 	align-items: stretch;
 	justify-content: center;
-  bottom: 50%;
+  /* bottom: 50%;
   right: 20%;
-  left: 20%;
+  left: 20%; */
   /* color: #cc0033; */
   color: white;
   /* font-family: Helvetica, Arial, sans-serif; */
   font-family: 'Roboto Condensed', sans-serif;
 
   /* font-family: 'Courier New', Courier, monospace; */
-  /* font-size: 13px; */
-  /* font-weight: bold; */
-  /* line-height: 20px; */
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 20px;
   text-shadow: .5px .5px rgba(250,250,250,.3);
+  ${mobile({ fontSize: "16px" })}
 `
 const Button = styled.button`
   /* background-color: antiquewhite;

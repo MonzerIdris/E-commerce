@@ -478,7 +478,7 @@ function Cart() {
               { userCart &&
                 <TopText>Shopping Bag({userCart.total})</TopText>
                 }
-                <TopText onClick={(e) => setErrorMessage("Service Under Construction")}>Your Wishlist (0)</TopText>
+                <TopText onClick={(e) => setErrorMessage("This Page Is Under Construction")}>Your Wishlist (0)</TopText>
             </TopTexts>
             <TopButton type="filled">CHECKOUT NOW</TopButton>
             </Top>

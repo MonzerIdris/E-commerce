@@ -82,6 +82,7 @@ const FilterTitle = styled.span`
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
+  border: 1px solid;
   border-radius: 50%;
   background-color: ${(props) => props.color};
   margin: 0px 5px;
@@ -128,7 +129,7 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 500;
   &:hover{
-      background-color: #f8f4f4;
+      background-color: #aeb4b1;
   }
 `;
 
