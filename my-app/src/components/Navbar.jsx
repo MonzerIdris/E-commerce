@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from "styled-components";
 import { Search } from '@material-ui/icons';
 import Badge from '@material-ui/core/Badge'
@@ -173,11 +173,39 @@ const StyledLogoLink = styled(Link)`
 
 
 export default function Navbar() {
+    const [active0, setActive0] = useState('')
+    const [active1, setActive1] = useState('')
+    const [active2, setActive2] = useState('')
+    const [active3, setActive3] = useState('')
     // const cart = useSelector(state => state.cart)
     // // console.log(cart)
     // const quantity = useSelector(state => state.cart.quantity)
   const { user, setUser, userCart } = useContext(UserContext)
-    return (
+    
+    const handleClick = (num) => {
+        if(num === 0){
+            setActive0("#038c7c")
+            setActive1("")
+            setActive2("")
+            setActive3("")
+        } else if(num === 1){
+            setActive0("")
+            setActive1("#038c7c")
+            setActive2("")
+            setActive3("")
+        } else if(num === 2){
+            setActive0("")
+            setActive1("")
+            setActive2("#038c7c")
+            setActive3("")
+        } else{
+            setActive0("")
+            setActive1("")
+            setActive2("")
+            setActive3("#038c7c")
+        }
+    }
+  return (
     <Header>
     <Container data-spy="affix" data-offset-top="50">
         <Wrapper>
@@ -201,21 +229,21 @@ export default function Navbar() {
                 }}> <MenuItem>Logout</MenuItem> </StyledLink>
                 ) : (
                 <>
-                    <StyledLink to={"/register"}>
+                    <StyledLink style={{ color: active0 }} onClick={e => handleClick(0)} to={"/register"}>
                         <MenuItem>Register</MenuItem>
                     </StyledLink>
-                    <StyledLink to={"/login"}>
+                    <StyledLink style={{ color: active1 }} onClick={e => handleClick(1)} to={"/login"}>
                         <MenuItem>Log In</MenuItem>
                     </StyledLink>
                 </>
                 )}
 
-                <StyledLink to={"/products"}>
+                <StyledLink style={{ color: active2 }} onClick={e => handleClick(2)} to={"/products"}>
                     <MenuItem>     
                         Products
                     </MenuItem>
                 </StyledLink>                
-                <StyledLink to={"/cart"}>
+                <StyledLink style={{ color: active3 }} onClick={e => handleClick(3)} to={"/cart"}>
                     <MenuItem>
                         {user ? userCart ? (
                         <Badge overlap="rectangular" badgeContent={userCart.total} color="primary">

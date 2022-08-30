@@ -6,6 +6,7 @@ import { validateToken } from "./api/user";
 import AOS from "aos";
 
 import './Context.css'
+import { mobile } from "./responsive";
 
 export const UserContext = createContext()
 
@@ -25,10 +26,15 @@ const Container2 = styled.div`
   /* display: flex; */
   /* justify-content: center; */
   /* flex-direction: column; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   position: fixed;
   z-index: 999;
-  height: 4rem;
-  width: 8rem;
+  height: 15vh;
+  width: 25vw;
   /* letter-spacing: 1px; */
   overflow: visible;
   padding: 2rem 4rem 4rem 4rem ;
@@ -44,32 +50,41 @@ const Container2 = styled.div`
   /* border: 1px solid #fcc2c3; */
   border: 1px solid darkgreen;
   float: left;
+  ${mobile({ height: "20vh", width: "35vw"})}
   /* padding: 20px 30px; */
 `
 const P = styled.p`
-  position: absolute;
+  /* position: absolute;
   display: flex;
 	align-items: stretch;
 	justify-content: center;
   bottom: 50%;
   right: 20%;
-  left: 20%;
+  left: 20%; */
   /* color: #cc0033; */
+  display: flex;
+	align-items: stretch;
+	justify-content: center;
+  margin: 4vh 0;
   color: white;
   /* font-family: Helvetica, Arial, sans-serif; */
   font-family: 'Roboto Condensed', sans-serif;
 
   /* font-family: 'Courier New', Courier, monospace; */
-  /* font-size: 13px; */
-  /* font-weight: bold; */
-  /* line-height: 20px; */
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 20px;
   text-shadow: .5px .5px rgba(250,250,250,.3);
 `
 const Button = styled.button`
   /* background-color: antiquewhite;
   color: black; */
-  position: absolute;
+  /* position: absolute;
   top: 70%;
+  display: flex;
+	align-items: center;
+	justify-content: center; */
+  margin-top: 4vh;
   display: flex;
 	align-items: center;
 	justify-content: center;

@@ -183,6 +183,7 @@ const Button = styled.button`
   background-color: black;
   color: white;
   font-weight: 600;
+  cursor: pointer;
 `;
 
 // const UpdateButton = styled.button`
@@ -478,9 +479,9 @@ function Cart() {
               { userCart &&
                 <TopText>Shopping Bag({userCart.total})</TopText>
                 }
-                <TopText>Your Wishlist (0)</TopText>
+                <TopText onClick={e => setErrorMessage("This Page is Under Construction")}>Your Wishlist (0)</TopText>
             </TopTexts>
-            <TopButton type="filled">CHECKOUT NOW</TopButton>
+            <TopButton onClick={e => setErrorMessage("This Page is Under Construction")} type="filled">CHECKOUT NOW</TopButton>
             </Top>
             <Bottom>
             <Info>
@@ -583,7 +584,7 @@ function Cart() {
                   token={onToken}
                   stripeKey={process.env.REACT_APP_STRIPE}
                 > */}
-                  <Button>CHECKOUT NOW</Button>
+                  <Button onClick={e => setErrorMessage("This Page is Under Construction")}>CHECKOUT NOW</Button>
                 {/* </StripeCheckout> */}
             </Summary>
             </Bottom>
