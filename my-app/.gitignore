@@ -1,0 +1,17 @@
+# dependencies
+node_modules
+/node_modules
+#
+/build
+build
+
+.env
+/.env
+/build
+# echo "# e-commerce-frontend" >> README.md
+# git init
+# git add README.md
+# git commit -m "first commit"
+# git branch -M main
+# git remote add origin https://github.com/MonzerIdris/e-commerce-frontend.git
+# git push -u origin main

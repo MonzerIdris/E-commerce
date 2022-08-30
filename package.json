@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
     "start": "node index.js",
-    "heroku-postbuild": "cd my-app && npm install --only=dev && npm install && npm run build"
-  },
-  "engines": {
-    "node": "16.15.0"
+    "dev": "nodemon index.js",
+    "heroku-postbuild": "cd my-app && npm install npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -26,5 +23,9 @@
   },
   "devDependencies": {
     "web-vitals": "^3.0.0"
+  },
+    "engines": {
+    "node": "16.15.0",
+    "npm": "6.14.8"
   }
 }
