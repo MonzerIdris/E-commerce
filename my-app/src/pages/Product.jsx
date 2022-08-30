@@ -33,10 +33,10 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 50vh;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
-  ${mobile({ height: "55vh" })}
+  ${mobile({ height: "30" })}
 
 `;
 

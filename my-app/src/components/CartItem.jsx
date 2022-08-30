@@ -145,13 +145,17 @@ export default function CartItem({ data, product, productNum, refetch, productsL
                 <ProductDetail>
                   <DeleteContainer>
                     <Delete  style={{color: red[500]}} onClick={(e) => {
+                      setIsLoading(true)
                       productsLength =-1
                       mutate({
                     userId: data.cart.userId,
                     id: product._id,
                     quantity: quantity,
                     action: "delete"
-                  })}}/>
+                  })
+                  refetch()
+                  setIsLoading(false)
+                  }}/>
                   </DeleteContainer>
                   <Image src={product.img} />
                   <Details>

@@ -61,7 +61,7 @@ router.put("/:id", async (req,res) => {
                         userCart.total -= product.quantity
                         console.log(userCart.total)
                         // product.quantity = 0
-                        if (userCart.total < 0) userCart = null
+                        if (userCart.total <= 0) userCart = null
                     } else {      
                     // console.log(product)
                     userCart.total += totalItems
@@ -98,8 +98,8 @@ router.put("/:id", async (req,res) => {
             // };
             // userCart.total += totalItems
             console.log(userCart.total)
-            await userCart.save()
-            res.status(200).json(userCart)
+            const savedCart = await userCart.save()
+            res.status(200).json(savedCart)
 
         }
         // else if(action == "delete" ){

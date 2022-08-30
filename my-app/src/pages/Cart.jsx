@@ -395,9 +395,9 @@ function Cart() {
       
       // console.log(response.data)
       console.log(response.data.cart)
-      refetch()
+      // refetch()
     }
-  }, [status, error, setIsLoading, setErrorMessage, userCart, setUserCart,refetch]);
+  }, [status, error, setIsLoading, setErrorMessage, userCart, setUserCart,price]);
 
 
   // const onToken = (token) => {
@@ -478,7 +478,7 @@ function Cart() {
               { userCart &&
                 <TopText>Shopping Bag({userCart.total})</TopText>
                 }
-                <TopText>Your Wishlist (0)</TopText>
+                <TopText onClick={(e) => setErrorMessage("Service Under Construction")}>Your Wishlist (0)</TopText>
             </TopTexts>
             <TopButton type="filled">CHECKOUT NOW</TopButton>
             </Top>
