@@ -100,7 +100,7 @@ const Title = styled.p`
     top: 65%;
     /* left: 44%; */
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     color: #111
 `
 // const AddContainer = styled.div`

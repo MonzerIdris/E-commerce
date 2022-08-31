@@ -85,17 +85,17 @@ const Products = ({ cat, filters, sort, num, path }) => {
     { num === 3 ? (
       products.slice(0, 3)
       .map((item) => 
-      <Product item={item} key={item.id} />
+      <Product key={item.id} item={item}  />
     )
     ) : null }
 
     { num !== 3 ? 
       cat
-      ? (filteredProducts.map((item) => <Product item={item} key={item.id} />)
+      ? (filteredProducts.map((item) => <Product key={item.id} item={item}  />)
       ) : (products
           .slice(0, 8)
           .map((item) => 
-          <Product item={item} key={item.id} />
+          <Product key={item.id} item={item}  />
  
           )):null
           

@@ -41,7 +41,7 @@ const Container = styled.nav`
     z-index: 5; 
     box-shadow: 0 16px 16px -16px rgba(0, 0, 0, 0.25);
 
-    ${mobile({ height: "60px" })};
+    /* ${mobile({ height: "60px" })}; */
     
 `   
 const Wrapper = styled.div`
@@ -49,7 +49,7 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${mobile({ padding: "0px 0" })};
+    /* ${mobile({ padding: "0px 0" })}; */
 `
 const Left = styled.div`
     flex:1;
@@ -101,7 +101,7 @@ const Right = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    ${mobile({ flex: 2, justifyContent: "flex-end" })}
+    /* ${mobile({ flex: 2, justifyContent: "flex-end" })} */
 
 
 `
@@ -115,7 +115,7 @@ const MenuItem = styled.div`
         /* color: #038c7c; */
        border-bottom: 1px solid #038c7c;
     }
-    ${mobile({ fontSize: "14px", marginLeft: "10px" })}
+    ${mobile({ fontSize: "15px", marginLeft: "8px" })}
 `
 const Hr = styled.hr`
     height: 12px;
@@ -205,7 +205,7 @@ export default function Navbar() {
                         <MenuItem>Register</MenuItem>
                     </StyledLink>
                     <StyledLink to={"/login"}>
-                        <MenuItem>Log In</MenuItem>
+                        <MenuItem>Login</MenuItem>
                     </StyledLink>
                 </>
                 )}
