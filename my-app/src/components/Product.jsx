@@ -30,8 +30,10 @@ const Container = styled.div`
 
     flex: 1;
     margin: 5px;
-    min-width: 330px;
-    height: 350px;
+    /* min-width: 330px;
+    height: 350px; */
+    min-width: 230px;
+    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
