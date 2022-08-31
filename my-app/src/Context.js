@@ -30,7 +30,7 @@ const Container2 = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: start;
+  text-align: center;
   position: fixed;
   z-index: 990;
   max-height: 22vh;
