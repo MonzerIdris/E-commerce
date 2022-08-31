@@ -30,11 +30,11 @@ const Container2 = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
+  text-align: start;
   position: fixed;
   z-index: 990;
-  height: 22vh;
-  width: 20vw;
+  max-height: 22vh;
+  max-width: 20vw;
   /* letter-spacing: 1px; */
   overflow: visible;
   padding: 2rem 4rem 4rem 4rem ;
@@ -55,10 +55,14 @@ const Container2 = styled.div`
 
 `
 const P = styled.p`
+  /* position: absolute;
+  left: 0; */
   margin-bottom: 5vh;
   display: flex;
 	align-items: stretch;
 	justify-content: center;
+  width: 39vw;  
+  /* background-color: beige; */
   /* bottom: 50%;
   right: 20%;
   left: 20%; */
@@ -68,7 +72,7 @@ const P = styled.p`
   font-family: 'Roboto Condensed', sans-serif;
 
   /* font-family: 'Courier New', Courier, monospace; */
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   line-height: 20px;
   text-shadow: .5px .5px rgba(250,250,250,.3);

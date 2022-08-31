@@ -177,7 +177,7 @@ function Product({ item }) {
       }
       else {
         setIsLoading(true)
-        setErrorMessage("you have to log in first")
+        setErrorMessage("You Have To Login First")
         setIsLoading(false)
       }
     }
