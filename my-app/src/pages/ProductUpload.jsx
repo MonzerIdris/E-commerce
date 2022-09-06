@@ -11,22 +11,26 @@ import { mobile } from '../responsive';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  min-width: 100vw;
-  min-height: 110vh;
+  /* min-width: 100%; */
+  min-height: 100vh;
+  /* margin-top: 60px; */
   /* background-size: cover; */
   background-color: #e4e3e3;
-
-  display: flex;
+  text-align: center;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
+  /* ${mobile({minHeight: "175vh"})} */
 `;
 
 const Wrapper = styled.div`
     
-  width: 50%;
+  /* width: 100%; */
   /* padding: 20px; */
   /* background-color: white; */
       /* background-color: #dbd9f1; */
+      background-color: #e4e3e3;
+
 
 
 `;
@@ -48,10 +52,10 @@ const Div = styled.div`
 	letter-spacing: 1px;
 `
 const FormWrapper = styled.div`
-    min-height: 100%;
-    min-width: 100%;
+    /* min-height: 100%;
+    min-width: 100%; */
     flex: 1;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 	display: flex;
 	flex-direction: column;
 	letter-spacing: 1px;
@@ -60,8 +64,9 @@ const FormWrapper = styled.div`
 `
 const FileContainer = styled.div`
     
-    min-height: 100%;
-    min-width: 100%;
+    /* min-height: 100%;
+    min-width: 100%; */
+    /* width: 50%; */
     flex: 1;
     margin-right: 10px;
     display: flex;
@@ -82,7 +87,7 @@ const FileWrapper = styled.div`
     padding: 2% 12%;
 
 	background-color: #262534;
-    color: white;
+  color: white;
 	letter-spacing: 1px;
     cursor: pointer;
 	&:hover{
@@ -93,14 +98,14 @@ const FileWrapper = styled.div`
 `
 const ImgWrapper = styled.div`
     /* background-color: blue; */
-    flex: 12;
-    height: 70%;
-    width: 70%;
+    flex: 20;
+    height: 100%;
+    width: 100%;
     /* border: 1px solid #aaaaaa; */
 `
 const Img = styled.img`
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     height: auto;
     
     /* z-index: 9; */
@@ -119,6 +124,8 @@ const FileLabel = styled.label`
     
     cursor: pointer;
 	font-weight: 400;
+  ${mobile({fontSize: "14px", fontWeight: "200"})}
+
 
 `
 const FileInput = styled.input`
@@ -128,7 +135,7 @@ const FileInput = styled.input`
 `
 
 const InputWrapper = styled.div`
-    margin: 15px;
+  margin: 15px;
 	position: relative;
 	/* background-color: white; */
   /* background-color: #dbd9f1; */
@@ -145,13 +152,16 @@ const Label = styled.label`
   /* background-color: #dbd9f1; */
 
 	font-weight: 600;
+  ${mobile({})}
 
 `
 
 
 const Input = styled.input`
   flex: 1;
-  min-width: 70%;
+  width: 25vw;
+  display: flex;
+  align-self: flex-start;
   margin: 0px 10px;
   padding: 0.8em 0.8em 0.8em 0.8em ;
   outline: none;
@@ -173,7 +183,7 @@ const SelectWrapper = styled.div`
   /* background-color: #dbd9f1; */
   /* width: 200px; */
   margin: 30px;
-  width: 100%;
+  max-width: 100%;
   min-width: 15;
   max-width: 26ch;
   border: 1px solid #777;
@@ -234,7 +244,7 @@ const Select = styled.select`
   border: none;
   padding: 0.2em 1em 0 0;
   margin: 0 0;
-  width: 100%;
+  max-width: 100%;
   justify-self: start;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: inherit;
@@ -269,11 +279,11 @@ const Select = styled.select`
 // `
 
 const Button = styled.button`
-
+  margin-bottom: 5vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-  width: 35%;
+  /* width: 25vw; */
   border: none;
   border-radius: 6px;
   padding: 15px 20px;
@@ -290,7 +300,7 @@ const Button = styled.button`
   }
 `;
 const ButtonWrapper = styled.div`
-  margin-top: 36px;
+  margin-top: 5vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -467,11 +477,11 @@ export default function ProductUpload() {
                             <Input type={"text"} name="title" onChange={e => setTitle(e.target.value)} />    
                         </InputWrapper>                
                         <InputWrapper>
-                            <Label>Product Description</Label>
+                            <Label>Description</Label>
                             <Input type={"text"} name="desc" onChange={e => setDesc(e.target.value)}/>
                         </InputWrapper>
                         <SelectWrapper>
-                            <SelectLabel>Product Categories:</SelectLabel>
+                            <SelectLabel>Categories:</SelectLabel>
                             <Select name="categories" id="categories" onChange={e => setCategory(e.target.value)}>
                                 {/* <option value="0">Category :</option> */}
                                 <option value="shirt">Shirts</option>
