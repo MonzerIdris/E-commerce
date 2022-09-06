@@ -603,7 +603,7 @@ function Cart() {
             </Summary>
             </Bottom>
           </Wrapper>
-         <Footer/>
+         
         </>
                 ) : null
                 : null
@@ -634,7 +634,7 @@ function Cart() {
           </Container2>
         )}
         
-    </Container>
+    </Container><Footer/>
     </>
   )
 }
