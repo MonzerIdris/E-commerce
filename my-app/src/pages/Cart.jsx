@@ -25,14 +25,14 @@ import CartItem from '../components/CartItem'
 
 const Container = styled.div`
     min-height: 100vh;
-    width: 100vw;
+    /* max-width: 100vw; */
     background-color: #e4e3e3;
 
 `
 const Wrapper = styled.div`
   padding: 20px;
   min-height: 100vh;
-  width: 100vw;
+  /* width: 100vw; */
   ${mobile({ padding: "10px" })}
 
 `;
@@ -472,6 +472,7 @@ function Cart() {
     return newProduct
   }
   return (
+    <>
     <Container style={{}}>
       {/* {console.log()} */}
         <Navbar />
@@ -634,6 +635,7 @@ function Cart() {
         )}
         
     </Container>
+    </>
   )
 }
 
