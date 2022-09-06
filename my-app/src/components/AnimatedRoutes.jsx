@@ -7,7 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { UserContext } from '../Context';
-import { AnimatePresence } from 'framer-motion/dist/framer-motion'
+import { AnimatePresence } from 'framer-motion'
 
 import Cart from '../pages/Cart';
 import Home from '../pages/Home';
