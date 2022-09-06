@@ -250,7 +250,7 @@ function Product() {
           <ImgContainer>
             {/* <Image src={`/itemsImages${product.img}`} /> */}
             {product.img && product.img.split(".")[1] == "jpg" ? (
-            <Image src={`http://localhost:5000/itemsImages/${product.img}`} /> ) : (
+            <Image src={`https://eshopp-heroku.herokuapp.com/itemsImages/${product.img}`} /> ) : (
               <Image src={product.img} />
             ) 
           }
