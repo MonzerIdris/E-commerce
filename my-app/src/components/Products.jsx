@@ -39,10 +39,10 @@ const Products = ({ cat, filters, sort, num, path }) => {
       try {
         const res = await axios.get(
           cat
-            // ? `https://eshopp-heroku.herokuapp.com/api/products?category=${cat}`
-            // : "https://eshopp-heroku.herokuapp.com/api/products"
-              ? `http://localhost:5000/api/products?category=${cat}`
-              : "http://localhost:5000/api/products"
+            ? `https://eshopp-heroku.herokuapp.com/api/products?category=${cat}`
+            : "https://eshopp-heroku.herokuapp.com/api/products"
+              // ? `http://localhost:5000/api/products?category=${cat}`
+              // : "http://localhost:5000/api/products"
         );
         console.log(res.data)
         setProducts(res.data);
