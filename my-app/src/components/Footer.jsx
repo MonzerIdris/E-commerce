@@ -7,7 +7,7 @@ import styled from 'styled-components'
 color='0072b1'
 color='171515'*/
 const Div = styled.footer`
-    width: 100;
+    width: 100vw;
     /* height: 6vh; */
     height: auto;
     object-fit: contain;

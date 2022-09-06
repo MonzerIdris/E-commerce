@@ -22,6 +22,7 @@ dotenv.config()
 
 // const jsonParser = bodyParser.json()
 app.use(express.static(path.join(__dirname, "my-app", "build")))
+app.use("/itemsImages", express.static(path.join(__dirname, "itemsImages")));
 // const urlencodedParser = bodyParser.urlencoded({ extended: false })
 app.use(cors())
 app.use(express.json())
@@ -35,9 +36,6 @@ moongose.connect(process.env.MONGO_URL)
 
 
 // ... other app.use middleware 
-
-
-
 // app.use(isAuthorized)
 app.use("/api/auth", authRoute)
 app.use("/api/users",  userRoute)

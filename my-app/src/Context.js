@@ -33,11 +33,11 @@ const Container2 = styled.div`
   text-align: center;
   position: fixed;
   z-index: 990;
-  max-height: 22vh;
+  max-height: 18vh;
   max-width: 20vw;
   /* letter-spacing: 1px; */
   overflow: visible;
-  padding: 2rem 4rem 4rem 4rem ;
+  padding: 0rem 4rem 4rem 4rem ;
   margin: auto;
   top: 0;
   left: 0;
@@ -48,7 +48,7 @@ const Container2 = styled.div`
   /* background-color: teal; */
   background-color: #262526;
   /* border: 1px solid #fcc2c3; */
-  border: 1px solid darkgreen;
+  border: 1px solid black;
   float: left;
   /* padding: 20px 30px; */
   ${mobile({ height: "20vh", width: "25vw" })}
@@ -57,7 +57,7 @@ const Container2 = styled.div`
 const P = styled.p`
   /* position: absolute;
   left: 0; */
-  margin-bottom: 5vh;
+  margin-bottom: 2vh;
   display: flex;
 	align-items: stretch;
 	justify-content: center;

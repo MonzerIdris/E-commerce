@@ -39,8 +39,8 @@ router.post('/login', async (req,res) =>{
         const user = await User.findOne({
             email: req.body.email
         })
-        // console.log("1")
-        // console.log(user)
+        console.log("1")
+        console.log(user)
         if(!user) { return res.status(401).json({message: "Wrong Email"})}
         
         const hashedPassword = CrypyoJS.AES.decrypt(

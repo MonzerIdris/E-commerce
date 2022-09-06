@@ -52,7 +52,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyZmViMjRhO
     "title": "HAKURA T-SHIRT",
     "desc": "A Very Cool Shirt Available In Many Sizes",
     "img": "https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png",
-    "categories": ["shirts","man","woman"],
+    "categories": ["shirts","men","women"],
     "size": ["S","M","L"],
     "color": ["gray"],
     "price": 35

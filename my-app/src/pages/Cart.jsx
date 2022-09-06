@@ -24,11 +24,15 @@ import CartItem from '../components/CartItem'
 
 
 const Container = styled.div`
+    min-height: 100vh;
+    width: 100vw;
     background-color: #e4e3e3;
 
 `
 const Wrapper = styled.div`
   padding: 20px;
+  min-height: 100vh;
+  width: 100vw;
   ${mobile({ padding: "10px" })}
 
 `;
@@ -275,6 +279,7 @@ const Container2 = styled.div`
   flex-direction: column;
   text-align: center;
   position: fixed;
+  /* background-color: #e4e3e3; */
   z-index: 99;
   height: 30vh;
   width: 50vw;
@@ -300,17 +305,21 @@ const P = styled.p`
   display: flex;
 	align-items: stretch;
 	justify-content: center;
+  
+  width: 67vw;
   /* bottom: 50%;
   right: 20%;
   left: 20%; */
   /* color: #cc0033; */
   color: #262534;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  /* font-family: Helvetica, Arial, sans-serif; */
   /* font-family: 'Courier New', Courier, monospace; */
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: 1000;
   line-height: 20px;
   text-shadow: .5px .5px rgba(250,250,250,.3);
+  ${mobile({ fontSize: "22px" })}
 `
 const Button2 = styled.button`
   /* position: absolute;
@@ -325,20 +334,24 @@ const Button2 = styled.button`
   /* padding: .4em .4em; */
   padding: 10px 8vw;
   color: #262534;
-  border: 1px solid #262534;
-  
-  font-family: Helvetica, Arial, sans-serif;
+  border: 1px solid #000000;
+  font-family: 'Roboto Condensed', sans-serif;  
+  /* font-family: Helvetica, Arial, sans-serif; */
   /* font-family: 'Courier New', Courier, monospace; */
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 20px;
 	/* letter-spacing: 1px; */
   cursor: pointer;
+  text-decoration: none;
 	&:hover{
+    text-decoration: none;
     color: white;
     background-color: #262534;
     text-shadow:0 1px 3px darken(blue, 30%);
 	}
+  ${mobile({ fontSize: "16px" })}
+
 `
 
 function Cart() {
@@ -459,7 +472,7 @@ function Cart() {
     return newProduct
   }
   return (
-    <Container>
+    <Container style={{}}>
       {/* {console.log()} */}
         <Navbar />
         { user ? (

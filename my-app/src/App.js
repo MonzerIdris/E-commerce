@@ -15,6 +15,7 @@ import {
 import Success from './pages/success';
 // import { useSelector } from 'react-redux';
 import { UserContext } from './Context';
+import ProductUpload from './pages/ProductUpload';
 // import { userSelector } from "react-redux"
 
 
@@ -52,7 +53,9 @@ function App() {
             
           </Route> */}
         <Route path="*" element={<Navigate to="/" replace />} />
-          
+        
+        <Route path="/upload" element={<ProductUpload />} />
+
         </Routes>
       </Router>
     </div>

@@ -6,12 +6,12 @@ const addItem = async (params) => {
     formData.append("title", title);
     formData.append("desc", desc);
     formData.append("img", img);
-    formData.append("categories,", categories);
+    formData.append("categories", categories);
     formData.append("size", size);
     formData.append("color", color);
     formData.append("price", price);
 
-    const res = await client.post("/product", formData, {
+    const res = await client.post("/products", formData, {
       headers: {
         "Content-type": "multipart/form-data",
         token: localStorage.getItem("token") || "",

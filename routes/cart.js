@@ -19,7 +19,7 @@ const { verifyToken, authorization, verifyTokenAndAdmin } = require("./verifyTok
 // UPDATE
 router.put("/:id", async (req,res) => {
     // console.log(req.body)
-    let { productId, quantity, action, } = req.body
+    let { productId, quantity, action, size } = req.body
     // console.log(productId)
     try {
         // const { userId,...others } = req.body
@@ -61,11 +61,13 @@ router.put("/:id", async (req,res) => {
                         userCart.total -= product.quantity
                         console.log(userCart.total)
                         // product.quantity = 0
-                        if (userCart.total <= 0) userCart = null
+                        if (userCart.total < 0) userCart = null
                     } else {      
                     // console.log(product)
-                    userCart.total += totalItems
-                    console.log(totalItems,userCart.total,product)
+                    userCart.total += totalItems;
+                    if (product.size.includes(size)) {}
+                    else product.size.push(size);
+                    console.log(totalItems,userCart.total,product,size)
                     return product
                     }
                 }
@@ -78,7 +80,8 @@ router.put("/:id", async (req,res) => {
         if (!updated){
             userCart.products.push({
                 productId,
-                quantity
+                quantity,
+                size
             })
             userCart.total += quantity
             const savedCart = await userCart.save()
@@ -97,7 +100,7 @@ router.put("/:id", async (req,res) => {
             //     ],
             // };
             // userCart.total += totalItems
-            console.log(userCart.total)
+            // console.log(userCart.total)
             const savedCart = await userCart.save()
             res.status(200).json(savedCart)
 

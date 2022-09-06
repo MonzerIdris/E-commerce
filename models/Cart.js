@@ -13,6 +13,9 @@ const CartSchema = new mongoose.Schema(
           type: Number,
           default: 1,
         },
+        size: {
+          type: Array,
+        },
       },
     ],
     default: [],

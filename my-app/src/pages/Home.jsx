@@ -18,14 +18,17 @@ const Title = styled.h1`
 
 export default function Home() {
   return (
-    <div style={{backgroundColor: "#e4e3e3"
+    <>
+    <div style={{backgroundColor: "#e4e3e3", minHeight: "100vh", minWidth: "100vw", alignSelf: "center", 
   }}>
       <Navbar />
       <Slider />
       <Categories />
       <Title>Some Of Our Products :</Title>
       <Products num={3} />
-      <Footer />
+      
     </div>
+    <Footer />
+    </>
   )
 }

@@ -1,16 +1,32 @@
 const router = require('express').Router()
 const Product = require('../models/Product')
+const upload = require('../multer')
+
 const { verifyToken, authorization, verifyTokenAndAdmin } = require("./verifyToken")
 
 // CREATE
-router.post('/', verifyTokenAndAdmin, async (req, res) => {
-    const newProduct = new Product(req.body)
-
+router.post('/', upload, async (req, res) => {
     try {
+    console.log(req.body)
+    const { title, desc, categories, size, color, price} = req.body
+    const { filename: img } = req.file;
+    console.log(img)
+    const newProduct = new Product({
+        title: title,
+        desc: desc,
+        img: img,
+        categories: categories,
+        size: size,
+        color: color,
+        price: price,
+
+    })
+
+
         const savedProduct = await newProduct.save()
-        res.status(200).json(savedProduct)
+        res.status(200).json({savedProduct, message: "Product Added TO The Collection"})
     } catch (err) {
-        res.status(500).json(err)
+        res.status(500).json(err.message)
     }
 })
 

@@ -13,8 +13,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const Container = styled.div`
     background-color: #e4e3e3;
     margin: 0;
-    
-    
+    min-height: 100vh;
+    min-width: 100vw;    
 `
 const Title = styled.h1`
   margin: 20px;
@@ -115,15 +115,17 @@ function ProductList() {
   const handleClick = () => {
     setFilters({})
     setCategory(null)
+    navigation("/products")
   }
   return (
-    <Container>
+    <>
+      <Container>
         <Navbar />
         <Title>{cat}</Title>  
         <FilterContainer>
             <Filter>
-                <FilterText>Filter Products:</FilterText>
-                <Select name="color" onChange={handleFilters}>
+                <FilterText>Color</FilterText>
+                <Select placeholder='color' name="color" onChange={e => handleFilters(e)}>
                     <Option disabled>
                     Color
                     </Option>
@@ -134,7 +136,8 @@ function ProductList() {
                     <Option>beige</Option>
                     <Option>green</Option>
                 </Select>
-                <Select name="size" onChange={handleFilters}>
+                <FilterText>Size</FilterText>
+                <Select name="size" onChange={e => handleFilters(e)}>
                     <Option disabled>
                     Size
                     </Option>
@@ -157,8 +160,8 @@ function ProductList() {
                 </Select>               */}
                 <FilterText>Categories:</FilterText>
                 <Select onChange={(e) => handleChange(e)}>
-                    <Option value="men">Men</Option>
-                    <Option value="women">Women</Option>
+                    <Option value="shoes">Shoes</Option>
+                    <Option value="pants">Pants</Option>
                     <Option value="shirts">Shirts</Option>
                     <Option value="caps">Cap</Option>
                 </Select>
@@ -173,8 +176,10 @@ function ProductList() {
         </FilterContainer>
         <Button type='reset' on onClick={handleClick}>RESET</Button>
         <Products  cat={category} filters={filters} sort={sort} path={path}/>
-        <Footer />
-    </Container>
+        
+      </Container>
+      <Footer />
+    </>
   )
 }
 

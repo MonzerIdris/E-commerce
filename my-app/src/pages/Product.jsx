@@ -18,10 +18,12 @@ import { mobile } from '../responsive'
 
 const Container = styled.div`
     background-color: #e4e3e3;
+    min-height: 100vh;
     
 ` 
 const Wrapper = styled.div`
   padding: 50px;
+  min-height: 100vh;
   display: flex;
   ${mobile({ padding: "10px", flexDirection:"column" })}
 
@@ -140,7 +142,7 @@ function Product() {
   const [quantity, setQuantity] = useState(1);
 
   const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState([]);
   // const dispatch = useDispatch();
   const {  data, error, status, refetch  } = useQuery(["get-item", id],() => getItem({id}))
   const {
@@ -166,6 +168,7 @@ function Product() {
       setErrorMessage("");
       // console.log(data.data)
       setProduct(data.data)
+      setSize(data.data.size[0])
       // console.log(data.data.accessToken)
       // console.log(localStorage.getItem("token"))
     }
@@ -203,7 +206,8 @@ function Product() {
       userId,
       id,
       quantity,
-      action: "add"
+      action: "add",
+      size: size
     });
     }
     else {
@@ -244,7 +248,12 @@ function Product() {
         <Navbar />
         <Wrapper>
           <ImgContainer>
-            <Image src={product.img} />
+            {/* <Image src={`/itemsImages${product.img}`} /> */}
+            {product.img && product.img.split(".")[1] == "jpg" ? (
+            <Image src={`http://localhost:5000/itemsImages/${product.img}`} /> ) : (
+              <Image src={product.img} />
+            ) 
+          }
           </ImgContainer>
           <InfoContainer>
             <Title>{product.title}</Title>

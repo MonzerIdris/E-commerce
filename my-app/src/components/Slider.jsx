@@ -15,7 +15,7 @@ const Container = styled.div`
     margin: 0;
     overflow: hidden;
     
-    /* ${mobile({ display: "none"})} */
+    ${mobile({ height: "91vh"})}
 `
 const Arrow = styled.div`
     width: 50px;
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
     margin: 0;
     height: 100%;
     display: flex;
-    transition: all 1.5s ease;
+    transition: all 2s ease;
     transform: translateX(${props => props.slideIndex * -100}vw);
 `
 const Slide = styled.div`
@@ -73,11 +73,22 @@ const Img = styled.img`
     height: 100%;
     width: 100%;
     z-index: 0;
+    opacity: 0.9;
     object-fit: fill;
+    /* filter: blur(4px); */
     /* background-size: contain; */
+    box-shadow: inset 10px 10px 10px 20px gray;
     
     
 `
+const Block = styled.div`
+    width: 100%;
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+    background: radial-gradient(transparent 0%, black 100%)
+    `
+
 const InfoContainer = styled.div`
     /* flex: 1; */
     text-align: center;
@@ -148,6 +159,7 @@ export default function Slider() {
                 <Slide bg={item.bg} key={item.id}>
                     <ImgContainer>
                         <Img src={item.img}></Img>
+                        <Block></Block>
                     <InfoContainer>
                         {/* <Title>{item.title}</Title> */}
                         <Description>{item.desc}</Description>

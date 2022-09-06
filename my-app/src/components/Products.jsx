@@ -39,12 +39,12 @@ const Products = ({ cat, filters, sort, num, path }) => {
       try {
         const res = await axios.get(
           cat
-            ? `https://eshopp-heroku.herokuapp.com/api/products?category=${cat}`
-            : "https://eshopp-heroku.herokuapp.com/api/products"
-              // ? `http://localhost:5000/api/products?category=${cat}`
-              // : "http://localhost:5000/api/products"
+            // ? `https://eshopp-heroku.herokuapp.com/api/products?category=${cat}`
+            // : "https://eshopp-heroku.herokuapp.com/api/products"
+              ? `http://localhost:5000/api/products?category=${cat}`
+              : "http://localhost:5000/api/products"
         );
-        // console.log(res.data)
+        console.log(res.data)
         setProducts(res.data);
       } catch (err) {}
     };
@@ -52,7 +52,8 @@ const Products = ({ cat, filters, sort, num, path }) => {
   }, [cat]);
 
   useEffect(() => {
-    cat &&
+    // cat &&
+    path === "products" &&
       setFilteredProducts(
         products.filter((item) =>
           Object.entries(filters).every(([key, value]) =>
@@ -90,12 +91,12 @@ const Products = ({ cat, filters, sort, num, path }) => {
     ) : null }
 
     { num !== 3 ? 
-      cat
-      ? (filteredProducts.map((item) => <Product key={item.id} item={item}  />)
+      filters
+      ? (filteredProducts.map((item, index) => <Product key={item.id} item={item} index={index}  />)
       ) : (products
-          .slice(0, 8)
-          .map((item) => 
-          <Product key={item.id} item={item}  />
+          .slice(0, 16)
+          .map((item,index) => 
+          <Product key={item.id} item={item} index={index}  />
  
           )):null
           
