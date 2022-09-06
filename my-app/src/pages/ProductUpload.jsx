@@ -9,6 +9,8 @@ import { UserContext } from '../Context';
 import { addItem } from '../api/product'
 import { mobile } from '../responsive';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion'
+
 
 const Container = styled.div`
   /* min-width: 100%; */
@@ -447,7 +449,10 @@ export default function ProductUpload() {
 
        
   return (
-    <>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
     <Container>
         <Navbar/>
       {user && user.isAdmin === true ? (
@@ -533,6 +538,6 @@ export default function ProductUpload() {
     )}
     </Container>
     <Footer/>
-    </>
+    </motion.div>
   )
 }

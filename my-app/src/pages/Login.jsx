@@ -9,6 +9,8 @@ import { login } from '../api/user';
 import { UserContext } from '../Context';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { login } from '../redux/apiCalls';
+import { motion } from 'framer-motion'
+
 
 const Container = styled.div`
   width: 100vw;
@@ -163,7 +165,10 @@ function Login() {
 
 
   return (
-    <div>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
       <Navbar />
       <Container>
           <Wrapper>
@@ -192,7 +197,7 @@ function Login() {
         </Wrapper>
       </Container>
       {/* <Footer /> */}
-    </div>
+    </motion.div>
   )
 }
 

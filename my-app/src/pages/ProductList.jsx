@@ -9,6 +9,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 // import { UserContext } from '../Context'
 // import { getItems } from '../api/product'
 // import { useMutation, useQuery } from 'react-query'
+import { motion } from 'framer-motion'
+
 
 const Container = styled.div`
     background-color: #e4e3e3;
@@ -118,7 +120,10 @@ function ProductList() {
     navigation("/products")
   }
   return (
-    <>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
       <Container>
         <Navbar />
         <Title>{cat}</Title>  
@@ -179,7 +184,7 @@ function ProductList() {
         
       </Container>
       <Footer />
-    </>
+    </motion.div>
   )
 }
 

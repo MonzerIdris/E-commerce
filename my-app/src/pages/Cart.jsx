@@ -14,6 +14,7 @@ import { useQuery } from 'react-query'
 import { getTheCart } from '../api/cart'
 import CartItem from '../components/CartItem'
 // import { userRequest } from '../requestMethods'
+import { motion } from 'framer-motion'
 
 
 
@@ -473,7 +474,12 @@ function Cart() {
   }
   return (
     <>
-    <Container style={{}}>
+    <motion.div 
+      style={{minHeight: "100vh", backgroundColor: "#e4e3e3"}}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      >
       {/* {console.log()} */}
         <Navbar />
         { user ? (
@@ -634,7 +640,7 @@ function Cart() {
           </Container2>
         )}
         
-    </Container><Footer/>
+    </motion.div><Footer/>
     </>
   )
 }

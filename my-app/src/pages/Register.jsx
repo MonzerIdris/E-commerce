@@ -9,6 +9,8 @@ import Navbar from '../components/Navbar';
 import { UserContext } from '../Context';
 // import { publicRequest } from '../requestMethods';
 import { mobile } from '../responsive';
+import { motion } from 'framer-motion'
+
 
 
 const Container = styled.div`
@@ -247,7 +249,12 @@ function Register() {
   // }
 
   return (
-    <div style={{}}>
+    <motion.div 
+      style={{}}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      >
       <Navbar />
       <Container>
         <Wrapper>
@@ -284,7 +291,7 @@ function Register() {
           </Form>
         </Wrapper>
       </Container>
-    </div>
+    </motion.div>
   )
 }
 

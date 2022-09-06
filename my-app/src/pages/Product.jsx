@@ -15,6 +15,8 @@ import { UserContext } from '../Context'
 import { mobile } from '../responsive'
 // import { useDispatch } from "react-redux"
 // import { addProduct } from '../redux/cartRedux'
+import { motion } from 'framer-motion'
+
 
 const Container = styled.div`
     background-color: #e4e3e3;
@@ -244,6 +246,10 @@ function Product() {
   // };
 
   return (
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
     <Container>
         <Navbar />
         <Wrapper>
@@ -290,7 +296,7 @@ function Product() {
           </InfoContainer>
       </Wrapper>
       <Footer />
-    </Container>
+    </Container></motion.div>
   )
 }
 
