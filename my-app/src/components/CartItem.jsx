@@ -10,6 +10,8 @@ import { UserContext } from '../Context';
 import { mobile } from '../responsive';
 
 const Product = styled.div`
+background-color: #fff;
+  max-height: 250px;
   display: flex;
   justify-content: space-between;
   ${mobile({ flexDirection: "column" })}
@@ -35,6 +37,7 @@ const DeleteContainer = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  max-height: 400px;
 `;
 
 const Details = styled.div`
@@ -169,8 +172,11 @@ export default function CartItem({ data, product, productNum, refetch, productsL
                   setIsLoading(false)
                   }}/>
                   </DeleteContainer>
-                  <Image src={product.img} />
-                  <Details>
+                  {product.img && product.img.split(".")[1] === "jpg" ? (
+            <Image src={`https://eshopp-heroku.herokuapp.com/itemsImages/${product.img}`} /> ) : (
+              <Image src={product.img} />
+            ) 
+          }                  <Details>
                     <ProductName>
                       <b>Product:</b> {product.title}
                     </ProductName>
@@ -183,11 +189,14 @@ export default function CartItem({ data, product, productNum, refetch, productsL
                     ))}  
                     </ColorDetail>                 
                     <ProductSizeDetail>
-                      <b>Size:</b> {data.cart.products[productNum].size.map((s,sIndex) => (
+                      {/* <b>Size:</b> {data.cart.products[productNum] && data.cart.products[productNum].size.map((s,sIndex) => (
                         data.cart.products[productNum].size.length !== (sIndex - 1) ? (<ProductSize>{s},</ProductSize>) : ( 
                         <ProductSize>{s}{sIndex}</ProductSize>
                         )
-                      ) )}
+                      ) )} */}
+                      <ProductSize>
+                      <b>Size:</b> {product.size[0]}
+                    </ProductSize>
                     </ProductSizeDetail>
                   </Details>
                 </ProductDetail>

@@ -160,8 +160,9 @@ const Hr = styled.hr`
 
 const Summary = styled.div`
   flex: 1;
-  border: 0.5px solid lightgray;
-  border-radius: 10px;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  /* border-radius: 10px; */
   padding: 20px;
   height: 50vh;
 `;
@@ -514,8 +515,8 @@ function Cart() {
               <>
                
               <CartItem key={product._id} data={response.data} product={product} productNum={productNum} refetch={refetch} productsLength={response.data.products.length}/>
-              {/* <Hr /> */}
               <Hr />
+              {/* <Hr />              <Hr />              <Hr /> */}
             </>) : null
           }
           </>

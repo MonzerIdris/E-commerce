@@ -120,7 +120,7 @@ function ProductList() {
     navigation("/products")
   }
   return (
-    <motion.div
+    <div
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       exit={{opacity: 0}}>
@@ -172,7 +172,7 @@ function ProductList() {
                 </Select>
                 <FilterText>Sort Products:</FilterText>
                 <Select onChange={(e) => setSort(e.target.value)}>
-                    <Option value="newest">Newest</Option>
+                    {/* <Option value="newest">Newest</Option> */}
                     <Option value="asc">Price (asc)</Option>
                     <Option value="desc">Price (desc)</Option>
                 </Select>
@@ -184,7 +184,7 @@ function ProductList() {
         
       </Container>
       <Footer />
-    </motion.div>
+    </div>
   )
 }
 

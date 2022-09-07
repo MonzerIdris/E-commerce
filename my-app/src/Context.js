@@ -138,10 +138,10 @@ export default function Context({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [ErrorMessage, setErrorMessage] = useState("");
   const [userCart, setUserCart] = useState(null)
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init();
+  //   AOS.refresh();
+  // }, []);
 
   const { data, status } = useQuery("validate-token",validateToken , {
     onSuccess: (response) => {
