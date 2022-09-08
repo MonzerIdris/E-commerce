@@ -11,7 +11,7 @@ import { mobile } from '../responsive';
 
 const Product = styled.div`
 background-color: #fff;
-  max-height: 250px;
+  /* max-height: 250px; */
   display: flex;
   justify-content: space-between;
   ${mobile({ flexDirection: "column" })}
