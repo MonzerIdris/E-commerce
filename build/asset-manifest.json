@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.45d46a4f.css",
+    "main.js": "/static/js/main.874c0ad1.js",
+    "static/media/pexels-mentatdgt-1336873.jpg": "/static/media/pexels-mentatdgt-1336873.399753314f508b78476b.jpg",
+    "static/media/pexels-tembela-bohle-1884581.jpg": "/static/media/pexels-tembela-bohle-1884581.4bd07a83b88ef99dffdb.jpg",
+    "static/media/pexels-kai-pilger-996329.jpg": "/static/media/pexels-kai-pilger-996329.ea33ab7903033d07dc89.jpg",
+    "static/media/pexels-tembela-bohle-1884584.jpg": "/static/media/pexels-tembela-bohle-1884584.bdff38434b7deb29b651.jpg",
+    "index.html": "/index.html",
+    "main.45d46a4f.css.map": "/static/css/main.45d46a4f.css.map",
+    "main.874c0ad1.js.map": "/static/js/main.874c0ad1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45d46a4f.css",
+    "static/js/main.874c0ad1.js"
+  ]
+}
