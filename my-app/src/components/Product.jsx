@@ -208,7 +208,7 @@ function Product({ item, index }) {
             <Container>
             {/* <Circle/> */}
             { item.img.split(".")[1] == "jpg" ? (
-            <Image src={`https://eshopp-heroku.herokuapp.com/itemsImages/${item.img}`} /> ) : (
+            <Image src={`https://lovely-quokka-bd5567.netlify.app/itemsImages/${item.img}`} /> ) : (
               <Image src={item.img} />
             ) 
           }
