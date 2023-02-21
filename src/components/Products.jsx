@@ -12,6 +12,7 @@ const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
 `
 
 const Products = ({ cat, filters, sort, num, path }) => {
@@ -26,7 +27,11 @@ const Products = ({ cat, filters, sort, num, path }) => {
 
 
   // const handleClick = () => {
-
+//         const res = await axios.get(
+//   cat
+//   ? `http://localhost:5000/api/products?category=${cat}`
+//   : "http://localhost:5000/api/products"
+// );
   // }
 
   useEffect(() => {
@@ -34,10 +39,12 @@ const Products = ({ cat, filters, sort, num, path }) => {
       try {
         const res = await axios.get(
           cat
-            ? `http://localhost:5000/api/products?category=${cat}`
-            : "http://localhost:5000/api/products"
+            ? `https://eshopp-heroku.herokuapp.com/api/products?category=${cat}`
+            : "https://eshopp-heroku.herokuapp.com/api/products"
+              // ? `http://localhost:5000/api/products?category=${cat}`
+              // : "http://localhost:5000/api/products"
         );
-        // console.log(res.data)
+        console.log(res.data)
         setProducts(res.data);
       } catch (err) {}
     };
@@ -45,7 +52,8 @@ const Products = ({ cat, filters, sort, num, path }) => {
   }, [cat]);
 
   useEffect(() => {
-    cat &&
+    // cat &&
+    path === "products" &&
       setFilteredProducts(
         products.filter((item) =>
           Object.entries(filters).every(([key, value]) =>
@@ -78,17 +86,17 @@ const Products = ({ cat, filters, sort, num, path }) => {
     { num === 3 ? (
       products.slice(0, 3)
       .map((item) => 
-      <Product item={item} key={item.id} />
+      <Product key={item.id} item={item}  />
     )
     ) : null }
 
     { num !== 3 ? 
-      cat
-      ? (filteredProducts.map((item) => <Product item={item} key={item.id} />)
+      filters
+      ? (filteredProducts.map((item, index) => <Product key={item.id} item={item} index={index}  />)
       ) : (products
-          .slice(0, 8)
-          .map((item) => 
-          <Product item={item} key={item.id} />
+          .slice(0, 16)
+          .map((item,index) => 
+          <Product key={item.id} item={item} index={index}  />
  
           )):null
           

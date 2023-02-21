@@ -2,8 +2,12 @@ import { GitHub, LinkedIn, MarkunreadRounded } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
 
+// social icons hex-code
+/* color='171515'
+color='0072b1'
+color='171515'*/
 const Div = styled.footer`
-    width: 100;
+    max-width: 100vw;
     /* height: 6vh; */
     height: auto;
     object-fit: contain;
@@ -31,6 +35,7 @@ const Container = styled.div`
     /* height: 9vh; */
     display: grid;
     align-items: center;
+    padding: 10px 0;
     /* position: fixed;
     top: 90.8%;
     left: 0;
@@ -91,22 +96,20 @@ function Footer() {
     <Container>
         {/* <Center></Center> */}
         {/* <Left> */}
-            <SocialConatiner>
+            {/* <SocialConatiner>
                 <SocialIcon color='171515'>
                     <GitHub />
                 </SocialIcon>
                 <SocialIcon color='0072b1'>
                     <LinkedIn />
                 </SocialIcon>
-                {/* color='171515'
-                    color='0072b1'
-                    color='171515'*/}
+
                 <SocialIcon color='171515'>
                     <MarkunreadRounded />
                 </SocialIcon>
                 
 
-            </SocialConatiner>
+            </SocialConatiner> */}
             Monzer&copy;All Rights reserved
         {/* </Left> */}
         {/* <Right><Title>Useful Links</Title>

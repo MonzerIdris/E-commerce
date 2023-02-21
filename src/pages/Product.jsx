@@ -15,13 +15,17 @@ import { UserContext } from '../Context'
 import { mobile } from '../responsive'
 // import { useDispatch } from "react-redux"
 // import { addProduct } from '../redux/cartRedux'
+import { motion } from 'framer-motion'
+
 
 const Container = styled.div`
     background-color: #e4e3e3;
+    min-height: 100vh;
     
 ` 
 const Wrapper = styled.div`
   padding: 50px;
+  min-height: 100vh;
   display: flex;
   ${mobile({ padding: "10px", flexDirection:"column" })}
 
@@ -33,10 +37,10 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 50vh;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
-  ${mobile({ height: "55vh" })}
+  ${mobile({ height: "30" })}
 
 `;
 
@@ -82,6 +86,7 @@ const FilterTitle = styled.span`
 const FilterColor = styled.div`
   width: 20px;
   height: 20px;
+  border: 1px solid;
   border-radius: 50%;
   background-color: ${(props) => props.color};
   margin: 0px 5px;
@@ -128,7 +133,7 @@ const Button = styled.button`
   cursor: pointer;
   font-weight: 500;
   &:hover{
-      background-color: #f8f4f4;
+      background-color: #aeb4b1;
   }
 `;
 
@@ -139,7 +144,7 @@ function Product() {
   const [quantity, setQuantity] = useState(1);
 
   const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+  const [size, setSize] = useState([]);
   // const dispatch = useDispatch();
   const {  data, error, status, refetch  } = useQuery(["get-item", id],() => getItem({id}))
   const {
@@ -165,6 +170,7 @@ function Product() {
       setErrorMessage("");
       // console.log(data.data)
       setProduct(data.data)
+      setSize(data.data.size[0])
       // console.log(data.data.accessToken)
       // console.log(localStorage.getItem("token"))
     }
@@ -202,7 +208,8 @@ function Product() {
       userId,
       id,
       quantity,
-      action: "add"
+      action: "add",
+      size: size
     });
     }
     else {
@@ -239,11 +246,20 @@ function Product() {
   // };
 
   return (
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
     <Container>
         <Navbar />
         <Wrapper>
           <ImgContainer>
-            <Image src={product.img} />
+            {/* <Image src={`/itemsImages${product.img}`} /> */}
+            {product.img && product.img.split(".")[1] == "jpg" ? (
+            <Image src={`https://eshopp-heroku.herokuapp.com/itemsImages/${product.img}`} /> ) : (
+              <Image src={product.img} />
+            ) 
+          }
           </ImgContainer>
           <InfoContainer>
             <Title>{product.title}</Title>
@@ -280,7 +296,7 @@ function Product() {
           </InfoContainer>
       </Wrapper>
       <Footer />
-    </Container>
+    </Container></motion.div>
   )
 }
 

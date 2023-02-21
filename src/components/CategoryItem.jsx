@@ -17,6 +17,13 @@ const Image = styled.img`
   ${mobile({ height: "40vh" })}
 
 `
+const Block = styled.div`
+    width: 100%;
+	position: absolute;
+	bottom: 0px;
+	top: 0px;
+    background: radial-gradient(transparent 0%, black 150%)
+    `
 const Info = styled.div`
   position: absolute;
   top: 0;
@@ -55,6 +62,7 @@ export default function CategoryItem({item}) {
     <Container>
       <Link to={`/products`}>
         <Image src={item.img}/>
+        <Block></Block>
         <Info>
           <Title>{item.title}</Title>
           <Button>SHOP NOW</Button>

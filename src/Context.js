@@ -6,6 +6,7 @@ import { validateToken } from "./api/user";
 import AOS from "aos";
 
 import './Context.css'
+import { mobile } from "./responsive";
 
 export const UserContext = createContext()
 
@@ -25,13 +26,18 @@ const Container2 = styled.div`
   /* display: flex; */
   /* justify-content: center; */
   /* flex-direction: column; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
   position: fixed;
-  z-index: 999;
-  height: 4rem;
-  width: 8rem;
+  z-index: 990;
+  max-height: 18vh;
+  max-width: 20vw;
   /* letter-spacing: 1px; */
   overflow: visible;
-  padding: 2rem 4rem 4rem 4rem ;
+  padding: 0rem 4rem 4rem 4rem ;
   margin: auto;
   top: 0;
   left: 0;
@@ -42,28 +48,35 @@ const Container2 = styled.div`
   /* background-color: teal; */
   background-color: #262526;
   /* border: 1px solid #fcc2c3; */
-  border: 1px solid darkgreen;
+  border: 1px solid black;
   float: left;
   /* padding: 20px 30px; */
+  ${mobile({ height: "20vh", width: "25vw" })}
+
 `
 const P = styled.p`
-  position: absolute;
+  /* position: absolute;
+  left: 0; */
+  margin-bottom: 2vh;
   display: flex;
 	align-items: stretch;
 	justify-content: center;
-  bottom: 50%;
+  width: 39vw;  
+  /* background-color: beige; */
+  /* bottom: 50%;
   right: 20%;
-  left: 20%;
+  left: 20%; */
   /* color: #cc0033; */
   color: white;
   /* font-family: Helvetica, Arial, sans-serif; */
   font-family: 'Roboto Condensed', sans-serif;
 
   /* font-family: 'Courier New', Courier, monospace; */
-  /* font-size: 13px; */
-  /* font-weight: bold; */
-  /* line-height: 20px; */
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
   text-shadow: .5px .5px rgba(250,250,250,.3);
+  ${mobile({ fontSize: "16px" })}
 `
 const Button = styled.button`
   /* background-color: antiquewhite;
@@ -125,10 +138,10 @@ export default function Context({ children }) {
   const [isLoading, setIsLoading] = useState(false);
   const [ErrorMessage, setErrorMessage] = useState("");
   const [userCart, setUserCart] = useState(null)
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init();
+  //   AOS.refresh();
+  // }, []);
 
   const { data, status } = useQuery("validate-token",validateToken , {
     onSuccess: (response) => {

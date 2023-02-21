@@ -9,12 +9,14 @@ import { useLocation, useNavigate } from 'react-router-dom'
 // import { UserContext } from '../Context'
 // import { getItems } from '../api/product'
 // import { useMutation, useQuery } from 'react-query'
+import { motion } from 'framer-motion'
+
 
 const Container = styled.div`
     background-color: #e4e3e3;
     margin: 0;
-    
-    
+    min-height: 100vh;
+    min-width: 100vw;    
 `
 const Title = styled.h1`
   margin: 20px;
@@ -115,15 +117,20 @@ function ProductList() {
   const handleClick = () => {
     setFilters({})
     setCategory(null)
+    navigation("/products")
   }
   return (
-    <Container>
+    <div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
+      <Container>
         <Navbar />
         <Title>{cat}</Title>  
         <FilterContainer>
             <Filter>
-                <FilterText>Filter Products:</FilterText>
-                <Select name="color" onChange={handleFilters}>
+                <FilterText>Color</FilterText>
+                <Select placeholder='color' name="color" onChange={e => handleFilters(e)}>
                     <Option disabled>
                     Color
                     </Option>
@@ -134,7 +141,8 @@ function ProductList() {
                     <Option>beige</Option>
                     <Option>green</Option>
                 </Select>
-                <Select name="size" onChange={handleFilters}>
+                <FilterText>Size</FilterText>
+                <Select name="size" onChange={e => handleFilters(e)}>
                     <Option disabled>
                     Size
                     </Option>
@@ -157,14 +165,14 @@ function ProductList() {
                 </Select>               */}
                 <FilterText>Categories:</FilterText>
                 <Select onChange={(e) => handleChange(e)}>
-                    <Option value="men">Men</Option>
-                    <Option value="women">Women</Option>
+                    <Option value="shoes">Shoes</Option>
+                    <Option value="pants">Pants</Option>
                     <Option value="shirts">Shirts</Option>
                     <Option value="caps">Cap</Option>
                 </Select>
                 <FilterText>Sort Products:</FilterText>
                 <Select onChange={(e) => setSort(e.target.value)}>
-                    <Option value="newest">Newest</Option>
+                    {/* <Option value="newest">Newest</Option> */}
                     <Option value="asc">Price (asc)</Option>
                     <Option value="desc">Price (desc)</Option>
                 </Select>
@@ -173,8 +181,10 @@ function ProductList() {
         </FilterContainer>
         <Button type='reset' on onClick={handleClick}>RESET</Button>
         <Products  cat={category} filters={filters} sort={sort} path={path}/>
-        <Footer />
-    </Container>
+        
+      </Container>
+      <Footer />
+    </div>
   )
 }
 

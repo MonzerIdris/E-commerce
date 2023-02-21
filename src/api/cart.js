@@ -5,14 +5,15 @@ import client from './axios'
 
 const addToCart = async (params) => {
 
-    const { userId, id, quantity, action } = params;
+    const { userId, id, quantity, action, size } = params;
     const res = await client.put(
       `/carts/${userId}`,
       {
         userId,
         productId: id,
         quantity,
-        action
+        action,
+        size
 
       },
       {

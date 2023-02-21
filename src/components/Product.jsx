@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { addToCart } from '../api/cart';
 import { useMutation } from 'react-query';
 import { UserContext } from '../Context';
+import { mobile } from '../responsive';
 
 const Info = styled.div`
     opacity: 0;
@@ -30,12 +31,18 @@ const Container = styled.div`
 
     flex: 1;
     margin: 5px;
-    min-width: 330px;
+    /* min-width: 330px;
+    height: 350px; */
+    min-width: 280px;
+    /* max-width: 320px; */
     height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5fbfd;
+    /* background-color: #f5fbfd; */
+    background-color: white;
+    /* background: radial-gradient(transparent 100%, lightgrey 150%); */
+
     position: relative;
     &:hover ${Info}{
         opacity: 1;
@@ -49,10 +56,20 @@ const Circle = styled.div`
     position: absolute;
 `
 const Image = styled.img`
+    background-color: white;
     position: absolute;
     top: 10%;
     height: 50%;
     z-index: 2;
+`
+const NewImage = styled.img`
+    position: absolute;
+    top: 0%;
+    height: 60%;
+    width: 100%;
+    /* border: 1px solid gray; */
+    z-index: 2;
+    ${mobile({width: ''})}
 `
 
 const Icon = styled.div`
@@ -98,7 +115,7 @@ const Title = styled.p`
     top: 65%;
     /* left: 44%; */
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     color: #111
 `
 // const AddContainer = styled.div`
@@ -125,7 +142,7 @@ const Title = styled.p`
 //   margin: 0px 5px;
 // `;
 
-function Product({ item }) {
+function Product({ item, index }) {
     // const [quantity, setQuantity] = useState(0)
 
     // const handleQuantity = (type) => {
@@ -172,12 +189,13 @@ function Product({ item }) {
         userId,
         id: item._id,
         quantity: 1,
-        action: "add"
+        action: "add",
+        size: item.size[0]
       });
       }
       else {
         setIsLoading(true)
-        setErrorMessage("you have to log in first")
+        setErrorMessage("You Have To Login First")
         setIsLoading(false)
       }
     }
@@ -189,7 +207,11 @@ function Product({ item }) {
         <>
             <Container>
             {/* <Circle/> */}
-            <Image src={item.img} />
+            { item.img.split(".")[1] == "jpg" ? (
+            <Image src={`https://eshopp-heroku.herokuapp.com/itemsImages/${item.img}`} /> ) : (
+              <Image src={item.img} />
+            ) 
+          }
             <Info>
                 <Icon>
                     <ShoppingCartOutlined onClick={handleAddToCart} />

@@ -9,11 +9,14 @@ import Navbar from '../components/Navbar';
 import { UserContext } from '../Context';
 // import { publicRequest } from '../requestMethods';
 import { mobile } from '../responsive';
+import { motion } from 'framer-motion'
+import Footer from '../components/Footer';
+
 
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -247,7 +250,12 @@ function Register() {
   // }
 
   return (
-    <div style={{}}>
+    <motion.div 
+      style={{}}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      >
       <Navbar />
       <Container>
         <Wrapper>
@@ -284,7 +292,8 @@ function Register() {
           </Form>
         </Wrapper>
       </Container>
-    </div>
+      <Footer/>
+    </motion.div>
   )
 }
 

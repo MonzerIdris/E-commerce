@@ -10,6 +10,8 @@ import { UserContext } from '../Context';
 import { mobile } from '../responsive';
 
 const Product = styled.div`
+background-color: #fff;
+  /* max-height: 250px; */
   display: flex;
   justify-content: space-between;
   ${mobile({ flexDirection: "column" })}
@@ -35,6 +37,7 @@ const DeleteContainer = styled.div`
 
 const Image = styled.img`
   width: 200px;
+  max-height: 400px;
 `;
 
 const Details = styled.div`
@@ -58,11 +61,23 @@ const ProductColor = styled.span`
   width: 20px;
   height: 20px;
   border-radius: 50%;
+  margin: 0 4px 0 0;
   border: 1px solid;
   background-color: ${(props) => props.color};
 `;
 
-const ProductSize = styled.span``;
+const ProductSizeDetail = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-between; */
+`;
+
+const ProductSize = styled.span`
+  margin-right: 5px;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-between; */
+`;
 
 const PriceDetail = styled.div`
   flex: 1;
@@ -145,31 +160,44 @@ export default function CartItem({ data, product, productNum, refetch, productsL
                 <ProductDetail>
                   <DeleteContainer>
                     <Delete  style={{color: red[500]}} onClick={(e) => {
+                      setIsLoading(true)
                       productsLength =-1
                       mutate({
                     userId: data.cart.userId,
                     id: product._id,
                     quantity: quantity,
                     action: "delete"
-                  })}}/>
+                  })
+                  refetch()
+                  setIsLoading(false)
+                  }}/>
                   </DeleteContainer>
-                  <Image src={product.img} />
-                  <Details>
+                  {product.img && product.img.split(".")[1] === "jpg" ? (
+            <Image src={`https://eshopp-heroku.herokuapp.com/itemsImages/${product.img}`} /> ) : (
+              <Image src={product.img} />
+            ) 
+          }                  <Details>
                     <ProductName>
                       <b>Product:</b> {product.title}
                     </ProductName>
-                    <ProductId>
+                    {/* <ProductId>
                       <b>ID:</b> {product._id.slice(0,11)}
-                      {/* {setIdList([...idList,product._id])} */}
-                    </ProductId>
+                    </ProductId> */}
                     <ColorDetail>
                     {product.color.map(c => (
                         <ProductColor color={c} />
                     ))}  
                     </ColorDetail>                 
-                    <ProductSize>
+                    <ProductSizeDetail>
+                      {/* <b>Size:</b> {data.cart.products[productNum] && data.cart.products[productNum].size.map((s,sIndex) => (
+                        data.cart.products[productNum].size.length !== (sIndex - 1) ? (<ProductSize>{s},</ProductSize>) : ( 
+                        <ProductSize>{s}{sIndex}</ProductSize>
+                        )
+                      ) )} */}
+                      <ProductSize>
                       <b>Size:</b> {product.size[0]}
                     </ProductSize>
+                    </ProductSizeDetail>
                   </Details>
                 </ProductDetail>
                 <PriceDetail>
@@ -188,7 +216,8 @@ export default function CartItem({ data, product, productNum, refetch, productsL
                     userId: data.cart.userId,
                     id: product._id,
                     quantity: quantity,
-                    action: "update"
+                    action: "update",
+                    size: data.cart.size
                 })}}>Update</UpdateButton>
                 </PriceDetail>
                 {/* {setProductNum(productNum += 1)} */}

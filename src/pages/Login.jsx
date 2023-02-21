@@ -9,10 +9,12 @@ import { login } from '../api/user';
 import { UserContext } from '../Context';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { login } from '../redux/apiCalls';
+import { motion } from 'framer-motion'
+
 
 const Container = styled.div`
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background-size: cover;
   display: flex;
   align-items: center;
@@ -163,7 +165,10 @@ function Login() {
 
 
   return (
-    <div>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}>
       <Navbar />
       <Container>
           <Wrapper>
@@ -192,7 +197,7 @@ function Login() {
         </Wrapper>
       </Container>
       {/* <Footer /> */}
-    </div>
+    </motion.div>
   )
 }
 
