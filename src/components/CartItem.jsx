@@ -173,7 +173,7 @@ export default function CartItem({ data, product, productNum, refetch, productsL
                   }}/>
                   </DeleteContainer>
                   {product.img && product.img.split(".")[1] === "jpg" ? (
-            <Image src={`https://eshopp-heroku.herokuapp.com/itemsImages/${product.img}`} /> ) : (
+            <Image src={`//monzer-ecommerce-01/itemsImages/${product.img}`} /> ) : (
               <Image src={product.img} />
             ) 
           }                  <Details>

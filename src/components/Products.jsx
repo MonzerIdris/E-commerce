@@ -39,8 +39,8 @@ const Products = ({ cat, filters, sort, num, path }) => {
       try {
         const res = await axios.get(
           cat
-            ? `https://eshopp-heroku.herokuapp.com/api/products?category=${cat}`
-            : "https://eshopp-heroku.herokuapp.com/api/products"
+            ? `https://monzer-ecommerce-01.netlify.app/api/products?category=${cat}`
+            : "https://monzer-ecommerce-01.netlify.app/api/products"
               // ? `http://localhost:5000/api/products?category=${cat}`
               // : "http://localhost:5000/api/products"
         );
