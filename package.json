@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon index.js",
     "dev": "nodemon index.js",
-    "heroku-postbuild": "cd my-app && npm install npm install && npm run build"
+    "heroku-postbuild": "cd my-app && npm install npm install && npm run build",
+    "build": "npm i"
   },
   "author": "",
   "license": "ISC",
