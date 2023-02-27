@@ -19,7 +19,9 @@
     "mongoose": "^6.4.4",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
+    "netlify-cli": "^13.0.0",
     "nodemon": "^2.0.19",
+    "serverless-http": "^3.1.1",
     "stripe": "^9.14.0"
   },
   "devDependencies": {

@@ -173,7 +173,7 @@ export default function CartItem({ data, product, productNum, refetch, productsL
                   }}/>
                   </DeleteContainer>
                   {product.img && product.img.split(".")[1] === "jpg" ? (
-            <Image src={`https://lovely-quokka-bd5567.netlify.app/itemsImages/${product.img}`} /> ) : (
+            <Image src={`//localhost:5000/itemsImages/${product.img}`} /> ) : (
               <Image src={product.img} />
             ) 
           }                  <Details>
